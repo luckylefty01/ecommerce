@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/luckylefty01/ecommerce/issues"
   },
-  "homepage": "https://github.com/luckylefty01/ecommerce#readme"
+  "homepage": "https://github.com/luckylefty01/ecommerce#readme",
+  "dependencies": {
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8",
+    "nodemon": "^2.0.15"
+  }
 }
