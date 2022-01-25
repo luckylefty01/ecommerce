@@ -4,8 +4,9 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-dotenv.config();
 // server connection
+dotenv.config();
+
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB connected!"))
 .catch((err) => {
@@ -13,6 +14,9 @@ mongoose.connect(process.env.MONGO_URL)
 })
 
 // middleware
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
 app.listen(3000, () => {
     console.log("server is live");
