@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "This e-commerce site will be built using the MERN stack(MongoDB, Express, React, Node.js). I am excited to use the MERN stack once again and fix the issues I had when I first learned this technology.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckylefty01/ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luckylefty01/ecommerce/issues"
+  },
+  "homepage": "https://github.com/luckylefty01/ecommerce#readme"
+}
