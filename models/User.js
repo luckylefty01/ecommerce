@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { boolean } = require("webidl-conversions")
 
 const UserSchema = new.mongoose.Schema(
     {
@@ -7,7 +6,7 @@ const UserSchema = new.mongoose.Schema(
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     isAdmin: {
-        type: boolean,
+        type: Boolean,
         default: false,
         },
     },
