@@ -17,8 +17,9 @@ mongoose.connect(process.env.MONGO_URL)
 
 // middleware
 app.use(express.json());
-app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+
 
 app.listen(3000, () => {
     console.log("server is live");
