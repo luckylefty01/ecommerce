@@ -8,7 +8,7 @@ router.post("/register", async (req , res) => {
         {
         username: req.body.username,
         email: req.body.email,
-        password: CryptoJS.AES.encrypt("req.body.password", "process.env.PASS_KEY").toString(),
+        password: CryptoJS.AES.decrypt("req.body.password", "process.env.PASS_KEY").toString(),
     });
 
     try{
@@ -20,25 +20,25 @@ router.post("/register", async (req , res) => {
 });
 
 // login route
+// used CryptoJS to encrypt passwords for users
 router.post("/login", async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
 
-        !user && res.status(401).json("Incorrect User Name!")
+        !user && res.status(401).json("Incorrect User Name!");
 
-        const hashedPassword = CryptoJS.AES.decrypt(user.password, process.env.PASS_KEY);
+        const hashPassword = CryptoJS.AES.decrypt(user.password, process.env.PASS_KEY);
+        const originalPassword = hashPassword.toString(CryptoJS.enc.Utf8);
 
-        const OriginalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
+        originalPassword !== req.body.password && res.status(401).json("Incorrect Password!");
 
-        OriginalPassword !== req.body.password && res.status(401).json("Incorrect Password!");
-
-        const {password, ...others} = user;
+        const {password, ...others} = user._doc;
 
         res.status(200).json(others);
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
-})
+});
 
 
 module.exports = router
