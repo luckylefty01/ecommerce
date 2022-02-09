@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
         
         originalPassword != inputPassword && 
             res.status(401).json("Incorrect Password!");
-
+    //used json web token to add another layer of encryption for users 
         const accessToken = jwt.sign(
         {
             id: user._id,
