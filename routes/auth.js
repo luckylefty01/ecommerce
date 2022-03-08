@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
 
 //login route
 //used CryptoJS to encrypt passwords for users
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
     try{
         const user = await User.findOne(
             {

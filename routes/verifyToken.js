@@ -17,12 +17,12 @@ const verifyToken = (req, res, next) => {
 const verifyTokenAndAuthorization = (req, res, next) => {
     verifyToken(req, res, () => {
         if(req.user.id === req.params.id || req.user.isAdmin){
-            next()
+            next();
         }else{
-            res.status(403).json("Access Denied!")
+            res.status(403).json("Access Denied!");
         }
     });
-}
+};
 
 const verifyTokenAndAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
